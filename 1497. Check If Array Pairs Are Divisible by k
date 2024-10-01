@@ -1,0 +1,14 @@
+class Solution:
+    def canArrange(self, arr: List[int], k: int) -> bool:
+        r = [0]*k
+        for i in arr:
+            r[i % k] += 1
+            
+        if r[0] % 2 != 0:
+            return False 
+        
+        for i in range(1, k//2 +1):
+            if r[i] != r[k-i]:
+                return False 
+        return True 
+        
